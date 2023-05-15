@@ -1,8 +1,7 @@
 import openai
-from dotenv import dotenv_values
+import os
 
-config = dotenv_values('.env')
-openai.api_key = config['KEY']
+openai.api_key = os.environ['OPENAI_API_KEY']
 
 
 def main():
