@@ -1,24 +1,27 @@
 import openai
+from dotenv import dotenv_values
 
-openai.api_key = ''
+config = dotenv_values('.env')
+openai.api_key = config['KEY']
 
 
 def main():
     """
-    Function Name: ask_question()
+    Function Name: main()
 
     Description:
-    The function "ask_question()" is designed to ask a question to the user and receive a response in the form of a string.
+    The function "main()" is designed to ask a question to the user and receive a response in the form of a string.
 
     Syntax:
-    def ask_question()
+    def main()
 
     Parameters:
-    The function "ask_question()" does not take any parameters.
+    The function "main()" does not take any parameters.
 
     Return Value:
-    The function "ask_question()" returns a string, which is the response provided by the user to the question asked.
+    The function "main()" returns a string, which is the response provided by the user to the question asked.
     """
+
     messages = []
     while True:
         try:
@@ -30,7 +33,7 @@ def main():
                 max_tokens=500
             )
             messages.append(res['choices'][0]['message'].to_dict())
-            print(f"Assistant: {res['choices'][0]['message']['content']}")
+            print(f"ChatGPT: {res['choices'][0]['message']['content']}")
         except KeyboardInterrupt:
-            print('Exiting...')
+            print('...Exiting...')
             break
