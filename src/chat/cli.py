@@ -9,16 +9,13 @@ def main():
     Function Name: main()
 
     Description:
-    The function "main()" is designed to ask a question to the user and receive a response in the form of a string.
+    The function "main()" is designed to start a chat session with OpenAI's ChatGPT API. The session will retain history until the session is killed.
 
     Syntax:
     def main()
 
     Parameters:
     The function "main()" does not take any parameters.
-
-    Return Value:
-    The function "main()" returns a string, which is the response provided by the user to the question asked.
     """
 
     messages = []
