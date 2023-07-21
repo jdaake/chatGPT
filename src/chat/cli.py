@@ -1,7 +1,9 @@
 import openai
 import os
+from termcolor import colored
 
-openai.api_key = os.environ['OPENAI_API_KEY']
+openai.api_key = ''
+# openai.api_key = os.environ['OPENAI_API_KEY']
 
 
 def main():
@@ -29,7 +31,8 @@ def main():
                 max_tokens=500
             )
             messages.append(res['choices'][0]['message'].to_dict())
-            print(f"ChatGPT: {res['choices'][0]['message']['content']}")
+            print(
+                colored(f"ChatGPT: {res['choices'][0]['message']['content']}", color='green'))
         except KeyboardInterrupt:
             print('...Exiting...')
             break
